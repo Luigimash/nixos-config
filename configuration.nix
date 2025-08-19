@@ -207,7 +207,7 @@
     # Commit only if there are changes
     if ! ${pkgs.git}/bin/git diff --cached --quiet 2>/dev/null; then
       ${pkgs.git}/bin/git commit -m "Auto-backup: $(date '+%Y-%m-%d %H:%M:%S')" 2>/dev/null || true
-      ${pkgs.git}/bin/git push 2>/dev/null || true
+      ${pkgs.git}/bin/git push origin framework13-loojy 2>/dev/null || true
       echo "✓ NixOS configuration backed up to Git"
     fi
   '';
