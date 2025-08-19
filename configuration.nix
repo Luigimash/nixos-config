@@ -141,7 +141,7 @@
     pkgs.pureref
     pkgs.spotify
     pkgs.wechat
-    nodejs_20z
+    nodejs_20
     pkgs.bitwarden-desktop
     pkgs.bitwarden-cli
     pkgs.usbutils
@@ -182,5 +182,32 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
+
+  # -------------------
+  # FRAMEWORK 13 LOOJY AUTOBACKUP
+  # -------------------
+  # Auto-backup configuration to Git on every rebuild
+  system.activationScripts.backup-config = {
+  text = ''
+    cd /etc/nixos
+    
+    # Set Git identity for this operation
+    export GIT_AUTHOR_NAME="NixOS Auto Backup"
+    export GIT_AUTHOR_EMAIL="nixos-backup@$(hostname)"
+    export GIT_COMMITTER_NAME="NixOS Auto Backup" 
+    export GIT_COMMITTER_EMAIL="nixos-backup@$(hostname)"
+    
+    # Add all changes
+    ${pkgs.git}/bin/git add . 2>/dev/null || true
+    
+    # Commit only if there are changes
+    if ! ${pkgs.git}/bin/git diff --cached --quiet 2>/dev/null; then
+      ${pkgs.git}/bin/git commit -m "Auto-backup: $(date '+%Y-%m-%d %H:%M:%S')" 2>/dev/null || true
+      ${pkgs.git}/bin/git push origin main 2>/dev/null || true
+      echo "✓ NixOS configuration backed up to Git"
+    fi
+  '';
+  deps = [ "etc" ];
+  };
 
 }
