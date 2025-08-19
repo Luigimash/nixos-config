@@ -114,12 +114,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    pkgs.git
     pkgs.libsForQt5.kdenlive
     pkgs.kdePackages.kdenlive
-    pkgs.fastfetchMinimal
     pkgs.obsidian
     pkgs.pinta
     pkgs.gimp3-with-plugins
@@ -137,16 +133,23 @@
 #    pkgs.notion-app
     pkgs.docker
     pkgs.slack
-    pkgs.ffmpeg_6
     pkgs.pureref
     pkgs.spotify
     pkgs.wechat
     nodejs_20
     pkgs.bitwarden-desktop
-    pkgs.bitwarden-cli
+
     pkgs.usbutils
     pkgs.hardinfo2
     
+    # CLI tools
+    vim
+    pkgs.btop 
+    pkgs.ffmpeg_6
+    pkgs.fastfetchMinimal
+    wget
+    pkgs.git
+    pkgs.bitwarden-cli
     # Framework stuff
     os-prober
   ];
