@@ -193,6 +193,7 @@
   system.activationScripts.backup-config = {
   text = ''
     cd /etc/nixos
+    echo "Starting NixOS configuration backup" 
     
     # Set Git identity for this operation
     export GIT_AUTHOR_NAME="NixOS Auto Backup"
