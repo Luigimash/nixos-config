@@ -1,0 +1,4 @@
+# Exclude potentially sensitive files
+result
+result-*
+.git/
