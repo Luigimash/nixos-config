@@ -206,7 +206,12 @@
     
     # Commit 
     ${pkgs.git}/bin/git commit -m "Auto-backup: $(date '+%Y-%m-%d %H:%M:%S')" 2>/dev/null || true
-    ${pkgs.git}/bin/git push origin framework13-loojy 2>/dev/null
+    # Push with proper error handling
+    if ${pkgs.git}/bin/git push origin framework13-loojy >/dev/null 2>&1; then
+      echo "✓ NixOS configuration backed up to Git"
+    else
+      echo "⚠ Push failed - commit saved locally"
+    fi
     echo "✓ NixOS configuration backed up to Git"
   '';
   deps = [ "etc" ];
