@@ -190,31 +190,21 @@
   # FRAMEWORK 13 LOOJY AUTOBACKUP
   # -------------------
   # Auto-backup configuration to Git on every rebuild
-  system.activationScripts.backup-config = {
+system.activationScripts.backup-config = {
   text = ''
     cd /etc/nixos
-    echo "Starting NixOS configuration backup" 
+    export GIT_SSH_COMMAND="${pkgs.openssh}/bin/ssh -i /root/.ssh/nixos-config-deploy -o StrictHostKeyChecking=no"
     
-    # Set Git identity for this operation
-    export GIT_AUTHOR_NAME="NixOS Auto Backup"
-    export GIT_AUTHOR_EMAIL="nixos-backup@$(hostname)"
-    export GIT_COMMITTER_NAME="NixOS Auto Backup" 
-    export GIT_COMMITTER_EMAIL="nixos-backup@$(hostname)"
-    
-    # Add all changes
-    ${pkgs.git}/bin/git add . 2>/dev/null || true
-    
-    # Commit 
-    ${pkgs.git}/bin/git commit -m "Auto-backup: $(date '+%Y-%m-%d %H:%M:%S')" 2>/dev/null || true
-    # Push with proper error handling
-    if ${pkgs.git}/bin/git push origin framework13-loojy >/dev/null 2>&1; then
-      echo "✓ NixOS configuration backed up to Git"
-    else
-      echo "⚠ Push failed - commit saved locally"
+    ${pkgs.git}/bin/git add .
+    if ${pkgs.git}/bin/git commit -m "Auto-backup: $(date '+%Y-%m-%d %H:%M:%S')" >/dev/null 2>&1; then
+      if ${pkgs.git}/bin/git push origin framework13-loojy; then
+        echo "✓ Backed up"
+      else
+        echo "⚠ Push failed"
+      fi
     fi
-    echo "✓ NixOS configuration backed up to Git"
   '';
   deps = [ "etc" ];
-  };
+};
 
 }
