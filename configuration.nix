@@ -138,6 +138,7 @@
     pkgs.wechat
     nodejs_20
     pkgs.bitwarden-desktop
+    pkgs.appimage-run
 
     pkgs.usbutils
     pkgs.hardinfo2
@@ -150,8 +151,10 @@
     wget
     pkgs.git
     pkgs.bitwarden-cli
+    
     # Framework stuff
     os-prober
+    pkgs.fprintd # fingerprint sensor daemon
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
