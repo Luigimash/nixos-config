@@ -175,6 +175,14 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  # Ollama
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm"; # AMD library. NVIDIA acceleration would be "CUDA"
+    # Optional: preload models, see https://ollama.com/library
+    # loadModels = [ "llama3.2:3b" "deepseek-r1:1.5b"];
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
