@@ -114,6 +114,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    pkgs.ifuse # for accessing iOS device contents
     pkgs.libsForQt5.kdenlive
     pkgs.kdePackages.kdenlive
     pkgs.obsidian
