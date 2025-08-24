@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./iphone.nix
       # nixos hardware framework 13 amd ai 9 hx370 optimizations
       <nixos-hardware/framework/13-inch/amd-ai-300-series>
     ];
@@ -114,7 +115,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    pkgs.ifuse # for accessing iOS device contents
     pkgs.libsForQt5.kdenlive
     pkgs.kdePackages.kdenlive
     pkgs.obsidian
