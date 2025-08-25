@@ -125,6 +125,7 @@
     pkgs.discord
     pkgs.steam
     pkgs.protonup-qt
+    pkgs.kicad
  #   pkgs.code-cursor # Cursor seems to be outdated, 1.2.1 at time of writing when newest is 1.4
     pkgs.vscode
     pkgs.claude-code
