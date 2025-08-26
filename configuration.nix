@@ -115,6 +115,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    pkgs.bambu-studio
     pkgs.libsForQt5.kdenlive
     pkgs.kdePackages.kdenlive
     pkgs.obsidian
