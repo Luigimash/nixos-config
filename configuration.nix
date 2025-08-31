@@ -114,31 +114,41 @@
     pkgs.protonup-qt
     pkgs.kicad
  #   pkgs.code-cursor # Cursor seems to be outdated, 1.2.1 at time of writing when newest is 1.4
-    pkgs.vscode
-    pkgs.claude-code
+    
     pkgs.anki
     pkgs.libreoffice-still
     pkgs.figma-linux
 #    pkgs.notion-app
-    pkgs.docker
     pkgs.slack
     pkgs.pureref
     pkgs.spotify
     pkgs.wechat
-    nodejs_20
     pkgs.bitwarden-desktop
     pkgs.appimage-run
 
     pkgs.usbutils
     pkgs.hardinfo2
     
+    # Programming Languages and Tools
+    pkgs.docker
+    pkgs.rustc
+    pkgs.go
+    pkgs.python313
+    pkgs.nodejs_20
+    
+    pkgs.vscode
+    pkgs.claude-code
+    pkgs.warp-terminal
+    pkgs.git
+    
     # CLI tools
-    vim
+    pkgs.vim
+    pkgs.warp
     pkgs.btop 
     pkgs.ffmpeg_6
     pkgs.fastfetchMinimal
-    wget
-    pkgs.git
+    pkgs.wget
+    pkgs.jq
     pkgs.bitwarden-cli
     
     # Framework stuff
