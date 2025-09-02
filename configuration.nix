@@ -10,6 +10,8 @@
       ./hardware-configuration.nix
       ./iphone.nix
       ./audio.nix
+      ./figma.nix
+      ./amd-hardware-accel.nix
       # nixos hardware framework 13 amd ai 9 hx370 optimizations
       <nixos-hardware/framework/13-inch/amd-ai-300-series>
     ];
@@ -23,12 +25,7 @@
   };
   # boot.loader.systemd-boot.enable = true; # disabled in favour of GRUB
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # Additional optimizations for amd ai 9 hx370 chip
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
+  
   services.power-profiles-daemon.enable = true;
   services.tlp.enable = false; #don't use both tlp and power-profiles-daemon 
   # Firmware updates (framework? claude recommend)
@@ -117,7 +114,6 @@
     
     pkgs.anki
     pkgs.libreoffice-still
-    pkgs.figma-linux
 #    pkgs.notion-app
     pkgs.slack
     pkgs.pureref
