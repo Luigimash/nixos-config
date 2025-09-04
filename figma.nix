@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 
+# After doing all this, we find that figma-linux electron app is kind of ass, and that you should probably just use Firefox to run figma. 
+
 let
   figma-linux-hw-accel = pkgs.symlinkJoin {
     name = "figma-linux-hw-accel";
