@@ -15,7 +15,7 @@ in
       pkgs.git
       pkgs.htop
       # Add your packages here
-    ];\
+    ];
     
     programs.bash.enable = true;
     
