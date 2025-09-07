@@ -168,7 +168,7 @@
   # List services that you want to enable:
 
   # Enable Tailscale
-  #services.tailscale.enable = true;
+  services.tailscale.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -180,6 +180,11 @@
     # Optional: preload models, see https://ollama.com/library
     # loadModels = [ "llama3.2:3b" "deepseek-r1:1.5b"];
   };
+  
+  # FONTS
+  fonts.packages = with pkgs; [ 
+  comic-mono
+  ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
