@@ -13,6 +13,7 @@
       ./figma.nix
       ./amd-hardware-accel.nix
       ./home-manager.nix
+      ./tailscale.nix
       # nixos hardware framework 13 amd ai 9 hx370 optimizations
       <nixos-hardware/framework/13-inch/amd-ai-300-series>
     ];
@@ -166,9 +167,6 @@
   # };
 
   # List services that you want to enable:
-
-  # Enable Tailscale
-  services.tailscale.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
