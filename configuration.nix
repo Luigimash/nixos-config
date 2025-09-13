@@ -139,6 +139,7 @@
     pkgs.claude-code
     pkgs.warp-terminal
     pkgs.git
+    pkgs.stm32cubemx
     # For MatLab, need to download from matlab's website. no packages
     
     # CLI tools
