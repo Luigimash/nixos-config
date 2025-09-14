@@ -136,6 +136,7 @@
     pkgs.nodejs_20
     pkgs.gnumake
     pkgs.jdk
+    pkgs.gcc-arm-embedded
     
     pkgs.vscode
     pkgs.claude-code
